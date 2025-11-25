@@ -1,24 +1,27 @@
-# Use Python base image
-FROM python:3.12-slim
+# Use official Python image as base
+FROM python:3.10-slim
 
-# Set working directory
-WORKDIR /code
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Create a working directory
+WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    libpq-dev gcc && \
-    apt-get clean
+    build-essential \
+    libpq-dev
 
-# Copy requirements and install
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+# Install Python dependencies
+COPY requirements.txt /app/
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy project code
-COPY . .
+# Copy project code into the container
+COPY . /app/
 
-# Expose port
+# Expose the port Django will run on
 EXPOSE 8000
 
-# Default command
+# Default command to run the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
