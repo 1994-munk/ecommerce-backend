@@ -1,95 +1,111 @@
 🛒 E-Commerce Backend API
 
-A Django REST Framework + JWT Authentication Powered Backend
+A modern, scalable backend built with Django REST Framework, PostgreSQL & JWT Authentication.
 
-📌 Overview
+🚀 Overview
 
-This project is a fully functional e-commerce backend API built using:
-
-Django
-
-Django REST Framework
-
-PostgreSQL
-
-Docker + Docker Compose
-
-JWT Authentication (SimpleJWT)
-
-It provides a clean, modular, and production-ready foundation for building a modern e-commerce system with user accounts, product management, categories, and secure authentication.
+This project is a fully containerized E-commerce Backend API designed for real-world production use.
+It includes secure JWT authentication, product management, category organization, and a modular architecture that can scale easily.
 
 🧩 Features
 🔐 Authentication
 
-User registration
+User Registration
 
-User login
+User Login
 
-JWT Access & Refresh tokens
+JWT Access & Refresh Tokens
 
-Protected endpoints
+Protected Routes
 
-Logout by token blacklisting
+Token Refresh Endpoint
+
+Token Blacklisting for Logout
 
 🛍️ Products
 
-Add products
+List Products
 
-List products
+Create Products
 
-Filter products by category
+View Product Details
 
-Retrieve product details
+Filter by Category (optional)
 
-🧭 Categories
+🗂️ Categories
 
-List all categories
+List Categories
 
-Add new categories
+Create Categories
 
-🗂️ Project Structure
+🛠️ Tech Stack
+
+Django 4+
+
+Django REST Framework
+
+SimpleJWT
+
+PostgreSQL
+
+Docker & Docker Compose
+
+Python 3.10+
+
+📁 Project Structure
 ecommerce-backend/
-│── ecommerce_backend/   # Main project settings
-│── users/               # Authentication app
-│── products/            # Products CRUD
-│── categories/          # Product categories
-│── docker/              # Docker config & services
-│── Dockerfile
-│── docker-compose.yml
-│── requirements.txt
-│── README.md
+│── ecommerce_backend/       # Project settings & config  
+│── users/                   # JWT Auth: register, login  
+│── products/                # Product API  
+│── categories/              # Category API  
+│── requirements.txt         # Python dependencies  
+│── Dockerfile               # Docker image build  
+│── docker-compose.yml       # Docker services  
+│── README.md                # Documentation  
 
-🐳 Running with Docker
-1️⃣ Build and Start the Project
+🐳 Running the Project with Docker
+1️⃣ Build and start services
 docker compose up --build
 
-2️⃣ Run Migrations
+2️⃣ Run migrations
 docker compose exec web python manage.py migrate
 
-3️⃣ Create Superuser (optional)
+3️⃣ Create superuser (optional)
 docker compose exec web python manage.py createsuperuser
 
-🔗 API Endpoints (Important)
-Auth
+🔗 API Endpoints
+🔐 Auth Routes
 Method	Endpoint	Description
 POST	/api/users/register/	Register new user
-POST	/api/users/login/	Login & receive JWT tokens
-POST	/api/token/refresh/	Refresh token
-Products
+POST	/api/users/login/	Login & get tokens
+POST	/api/token/refresh/	Refresh JWT token
+🛍️ Product Routes
 Method	Endpoint	Description
 GET	/api/products/	List all products
 POST	/api/products/	Create a product
-GET	/api/products/<id>/	Get product details
-Categories
+GET	/api/products/<id>/	Product details
+🗂️ Category Routes
 Method	Endpoint	Description
 GET	/api/categories/	List categories
 POST	/api/categories/	Add new category
-🎯 Goals
+🧪 Example Registration Payload
+{
+  "username": "shirley123",
+  "password": "StrongPass123!",
+  "email": "shirley@example.com"
+}
 
-Build a production-ready e-commerce backend.
+----
+🎯 Project Goals
 
-Practice Django REST Framework best practices.
+Build a secure and scalable backend.
 
-Learn JWT-based authentication the correct way.
+Practice real-world Django REST design patterns.
 
-Create a clean modular architecture suitable for real projects.
+Learn JWT authentication deeply.
+
+Prepare the system for e-commerce features like cart, orders, payments, etc.
+
+❤️ Author
+
+Made with too much caffeine 
