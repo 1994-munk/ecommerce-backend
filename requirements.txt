@@ -9,4 +9,5 @@ PyJWT==2.9.0
 sqlparse==0.5.3
 typing-extensions==4.13.2
 uritemplate==4.1.1
-gunicorn
+gunicogunicorn==21.2.0
+
